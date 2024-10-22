@@ -27,6 +27,7 @@ fn main() -> ! {
     let delay = Delay::new();
     init_heap();
 
+    esp_alloc::heap_allocator!(72 * 1024);
     esp_println::logger::init_logger_from_env();
 
     let timg0 = esp_hal::timer::timg::TimerGroup::new(peripherals.TIMG0);
